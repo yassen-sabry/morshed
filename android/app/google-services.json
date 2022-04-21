@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1088362444533",
+    "project_id": "learn-gate-c8b01",
+    "storage_bucket": "learn-gate-c8b01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088362444533:android:97c100be17475f3d1f37bc",
+        "android_client_info": {
+          "package_name": "com.promodo.promodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088362444533-0tvk3elll59nge6jr0u3oe01n6v7s03f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.promodo.promodo",
+            "certificate_hash": "8cf799f7d80a7d8a83bce45823f28f8dfccef1cd"
+          }
+        },
+        {
+          "client_id": "1088362444533-d86rujovlrbgmnqek6ik6oesdsspirn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmfcgcwz_5xOl3d7qV8y79d57TfiddBGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088362444533-d86rujovlrbgmnqek6ik6oesdsspirn1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1088362444533-aeb227kpk0bbsdn2ltttbak24ugf2toc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.promodo.promodo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
