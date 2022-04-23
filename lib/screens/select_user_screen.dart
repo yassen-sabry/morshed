@@ -6,6 +6,7 @@ import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 
 import 'package:win/app.dart';
 import '../widgets/avatar.dart';
+import 'home.dart';
 
 class SelectUserScreen extends StatefulWidget {
   static Route get route => MaterialPageRoute(

@@ -31,14 +31,14 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: AnimSearchBar(
-            width: 1000,
-            textController: searchController,
-            onSuffixTap: () {
-              setState(() {
-                searchController.clear();
-              });
-            }),
+        // leading: AnimSearchBar(
+        //     width: 1000,
+        //     textController: searchController,
+        //     onSuffixTap: () {
+        //       setState(() {
+        //         searchController.clear();
+        //       });
+        //     }),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),

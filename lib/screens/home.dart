@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   final ValueNotifier<int> pageIndex = ValueNotifier(0);
-  final ValueNotifier<String> title = ValueNotifier("Messages");
+  final ValueNotifier<String> title = ValueNotifier("Home");
   final TextEditingController searchController = new TextEditingController();
 
 
@@ -41,10 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
     "Settings",
   ];
 
-    void _onNavigationItemSelected(index) {
-      title.value = pageTitles[index];
-        pageIndex.value = index;
-      }
+  void _onNavigationItemSelected(index) {
+    title.value = pageTitles[index];
+    pageIndex.value = index;
+  }
 
 
   @override
@@ -54,23 +54,27 @@ class _HomeScreenState extends State<HomeScreen> {
         iconTheme: Theme.of(context).iconTheme,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Center(
-          child: ValueListenableBuilder(
-            valueListenable: title,
-            builder: (BuildContext context, String value, _) {
-              return Text(
-                value,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-              )
-              );
-            },
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ValueListenableBuilder(
+              valueListenable: title,
+              builder: (BuildContext context, String value, _) {
+                return Text(
+                    value,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    )
+                );
+              },
+            ),
+          ],
         ),
-        leadingWidth: 54,
-         leading: AnimSearchBar(
-            width: 1000,
+        leadingWidth: 600,
+        leading: AnimSearchBar(
+            width: 600,
             textController: searchController,
             onSuffixTap: () {
               setState(() {
@@ -91,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       bottomNavigationBar: _BottomNavigationBar(
-        onItemSelected: _onNavigationItemSelected
+          onItemSelected: _onNavigationItemSelected
       ),
     );
   }
@@ -101,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class _BottomNavigationBar extends StatefulWidget {
   final ValueChanged<int> onItemSelected;
-  
+
   _BottomNavigationBar({
     required this.onItemSelected,
   });
@@ -112,7 +116,7 @@ class _BottomNavigationBar extends StatefulWidget {
 
 class _BottomNavigationBarState extends State<_BottomNavigationBar> {
   var selectedIndex = 0;
-  
+
   void handleItemSelected(int index) {
     setState(() {
       selectedIndex = index;
@@ -128,20 +132,20 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
       elevation: 0,
       margin: EdgeInsets.all(0),
       child: SafeArea(
-            top: false,
-            bottom: true,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                NavigationBarItem(lable: "Home", icon: Icons.home, index: 0, onTap: handleItemSelected, isSelected: (selectedIndex == 0),),
-                NavigationBarItem(lable: "messages", icon: CupertinoIcons.bubble_left_bubble_right_fill, index: 1, onTap: handleItemSelected, isSelected: (selectedIndex == 1),),
-                // NavigationBarItem(lable: "Employees", icon: Icons.person, index: 2, onTap: handleItemSelected, isSelected: (selectedIndex == 2),),
-                NavigationBarItem(lable: "settings", icon: Icons.settings, index: 2, onTap: handleItemSelected, isSelected: (selectedIndex == 2),),
-              ],
+        top: false,
+        bottom: true,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              NavigationBarItem(lable: "Home", icon: Icons.home, index: 0, onTap: handleItemSelected, isSelected: (selectedIndex == 0),),
+              NavigationBarItem(lable: "messages", icon: CupertinoIcons.bubble_left_bubble_right_fill, index: 1, onTap: handleItemSelected, isSelected: (selectedIndex == 1),),
+              // NavigationBarItem(lable: "Employees", icon: Icons.person, index: 2, onTap: handleItemSelected, isSelected: (selectedIndex == 2),),
+              NavigationBarItem(lable: "settings", icon: Icons.settings, index: 2, onTap: handleItemSelected, isSelected: (selectedIndex == 2),),
+            ],
           ),
-            ),
+        ),
       ),
     );
   }
@@ -158,16 +162,16 @@ class NavigationBarItem extends StatelessWidget {
     required this.onTap,
     this.isSelected = false,
   });
-  
-  
-  
+
+
+
   final lable;
   final icon;
   final int index;
   final ValueChanged<int> onTap;
   final bool isSelected;
 
-  
+
 
   @override
   Widget build(BuildContext context) {
@@ -188,18 +192,18 @@ class NavigationBarItem extends StatelessWidget {
             ),
             const SizedBox(
               height: 8,
-              ),
+            ),
             Text(
-              lable,
-              style: isSelected
-                  ? const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.secondary,
-                    )
-                  : const TextStyle(
-                    fontSize: 12,
-                  )
+                lable,
+                style: isSelected
+                    ? const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.secondary,
+                )
+                    : const TextStyle(
+                  fontSize: 12,
+                )
             ),
           ],
         ),

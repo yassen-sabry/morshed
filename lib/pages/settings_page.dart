@@ -1,4 +1,5 @@
 
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:unicons/unicons.dart';
@@ -26,9 +27,14 @@ class SettingsPage extends StatelessWidget {
 
 
 
-class BodySettings extends StatelessWidget {
+class BodySettings extends StatefulWidget {
   const BodySettings({ Key? key }) : super(key: key);
 
+  @override
+  State<BodySettings> createState() => _BodySettingsState();
+}
+
+class _BodySettingsState extends State<BodySettings> {
   @override
   Widget build(BuildContext context) {
     return ListView(

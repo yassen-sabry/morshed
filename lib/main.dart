@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
+import 'package:win/screens/home.dart';
 import 'package:win/screens/login_sign_up/two_buttons.dart';
 import 'package:win/screens/screens.dart';
 import 'package:win/theme.dart';
