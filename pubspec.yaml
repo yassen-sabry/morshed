@@ -56,7 +56,7 @@ dependencies:
   firebase_auth_desktop: ^0.1.1
   anim_search_bar: ^2.0.2
   unicons: ^2.1.0
-  shared_preferences: ^2.0.13
+#  shared_preferences: ^2.0.13
 
 dev_dependencies:
   flutter_test:

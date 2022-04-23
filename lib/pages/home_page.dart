@@ -1,5 +1,6 @@
 
 import 'package:anim_search_bar/anim_search_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:win/helpers.dart';
 import 'package:win/theme.dart';
@@ -18,17 +19,15 @@ import 'package:faker/faker.dart';
 
 
 
-
-
-
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Widget _showScreen(BuildContext context, Instructors instructors) {
+  Widget _showScreen(BuildContext context, Instructors instructors, int index) {
     final TextEditingController searchController = new TextEditingController();
+
 
     return Scaffold(
       appBar: AppBar(
@@ -43,39 +42,39 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      // body: ListView(
-      //   physics: const BouncingScrollPhysics(),
-      //   children: [
-      //     Image.asset(_Instructors[index].imageUrl),
-      //     Center(child: Avatar.large(url: Instructors[index].imageUrl,)),
+      body: ListView(
+        physics: const BouncingScrollPhysics(),
+        children: [
+        // Image.asset(_Instructors[0].imageUrl),
+        Center(child: Avatar.large(url: _Instructors[index].imageUrl,)),
 
-      //   const SizedBox(height: 24,),
-      //   Column(children: [
-      //     Text(_Instructors[index].name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
-      //     const SizedBox(height: 4,),
-      //     Text(_Instructors[index].field, style: TextStyle(fontSize: 16, color: Colors.grey),),
-      //     const SizedBox(height: 4,),
-      //     Text(_Instructors[index].language, style: TextStyle(fontSize: 16, color: Colors.grey),),
-      //     const SizedBox(height: 30,),
-
-
-      //     IntrinsicHeight(
-      //       child: Row(children: [
-      //         buildButton(context, _Instructors[index].rating, "Rating"),
-      //         buildDivider(),
-      //         const Icon(CupertinoIcons.bubble_left_bubble_right_fill,),
-      //         buildDivider(),
-      //         buildButton(context, "${_Instructors[index].price}\$", "Per/Minute"),
-      //       ],),
-      //     )
-
-      //     SizedBox(height: 40,),
-      //     buildAbout(instructors),
+    const SizedBox(height: 24,),
+    Column(children: [
+    Text(_Instructors[index].name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
+    const SizedBox(height: 4,),
+    Text(_Instructors[index].field, style: TextStyle(fontSize: 16, color: Colors.grey),),
+    const SizedBox(height: 4,),
+    Text(_Instructors[index].language, style: TextStyle(fontSize: 16, color: Colors.grey),),
+    const SizedBox(height: 30,),
 
 
-      //   ],)
-      //   ],
-      // ),
+    IntrinsicHeight(
+    child: Row(children: [
+    // buildButton(context, Instructors.rating, "Rating"),
+    buildDivider(),
+    const Icon(CupertinoIcons.bubble_left_bubble_right_fill,),
+    buildDivider(),
+    buildButton(context, "${_Instructors[index].price}\$", "Per/Minute"),
+    ],),
+    ),
+
+    SizedBox(height: 40,),
+    //     buildAbout(instructors),
+
+
+    ],)
+    ],
+      )
     );
   }
 
@@ -97,6 +96,7 @@ class _HomePageState extends State<HomePage> {
           Text(
           text,
           style: TextStyle(fontWeight: FontWeight.bold),),
+
       ],
     ),
     );
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
     return GestureDetector(
       onTap: () => showDialog(
         context: context,
-        builder: (context) => _showScreen(context, _Instructors[index])
+        builder: (context) => _showScreen(context, _Instructors[index], index)
       ),
       child: Column(
         children: [
@@ -119,6 +119,7 @@ class _HomePageState extends State<HomePage> {
 
                       ]
                       ),
+
 
                       SizedBox(width: 10,),
 
@@ -161,17 +162,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-        padding: EdgeInsets.only(left: 16, right: 30),
-      children: [
-        FilterButton(),
-        SizedBox(height: 30,),
-        ListView.builder(
-        shrinkWrap: true,
-        itemCount: _Instructors.length,
-        itemExtent: 160,
-        itemBuilder: _listItemBuilder,
-        ),
-      ]
+          padding: EdgeInsets.only(left: 16, right: 30),
+        children: [
+          FilterButton(),
+          SizedBox(height: 30,),
+          ListView.builder(
+          shrinkWrap: true,
+          itemCount: _Instructors.length,
+          itemExtent: 160,
+          itemBuilder: _listItemBuilder,
+          ),
+        ]
     );
   }
 }
@@ -242,7 +243,7 @@ class FilterButton extends StatelessWidget {
 
 
 class Instructors {
-  const Instructors({required this.email, required this.name, required this.description, required this.imageUrl, required this.field, required this.price, required this.language, required this.rating});
+  const Instructors({required this.email, required this.name, required this.description, required this.imageUrl, required this.field, required this.price, required this.language, required this.rating,});
   final String name;
   final String description;
   final String imageUrl;
@@ -251,6 +252,7 @@ class Instructors {
   final double rating;
   final String language;
   final String email;
+
 }
 
 
@@ -263,7 +265,7 @@ final List<Instructors> _Instructors = <Instructors> [
     price: 0.50,
     language: "English",
     rating: 4,
-    email: faker.internet.email(), 
+    email: faker.internet.email(),
   ),
 
 
@@ -276,7 +278,7 @@ final List<Instructors> _Instructors = <Instructors> [
     price: 1.50,
     language: "Arabic",
     rating: 4,
-    email: faker.internet.email(), 
+    email: faker.internet.email(),
   ),
 
 
@@ -289,8 +291,7 @@ final List<Instructors> _Instructors = <Instructors> [
     price: 2,
     language: "Spanish",
     rating: 4, 
-    email: faker.internet.email(), 
-
+    email: faker.internet.email(),
   ),
 
 
@@ -303,8 +304,7 @@ final List<Instructors> _Instructors = <Instructors> [
     price: 2,
     language: "English",
     rating: 3.2, 
-    email: faker.internet.email(), 
-
+    email: faker.internet.email(),
   ),
 
 
