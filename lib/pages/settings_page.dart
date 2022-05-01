@@ -1,11 +1,9 @@
 
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:unicons/unicons.dart';
 import 'package:win/screens/login_sign_up/welcome_screen.dart';
 import 'package:win/theme.dart';
-import 'package:win/widgets/avatar.dart';
 
 
 class SettingsPage extends StatelessWidget {
@@ -51,7 +49,7 @@ class _BodySettingsState extends State<BodySettings> {
             ProfileMenu2(),
             ProfileMenu(icon: "assets/icons/Log out.svg", text: "Log Out", press: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {return WelcomeScreen();}));
-            },color: AppColors.secondary, size: 22, press1: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) {return WelcomeScreen(); }));}
+            },color: AppColors.secondary, size: 22, press1: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {return WelcomeScreen();}));}
             )],
         ),
       ],

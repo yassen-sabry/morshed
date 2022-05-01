@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_svg/svg.dart';
 import 'package:win/pages/login_page.dart';
-import 'package:win/screens/login_sign_up/log_in_instructor.dart';
 import 'package:win/screens/login_sign_up/two_buttons.dart';
-
 import '../../widgets/rounded_button.dart';
 import 'login_screen.dart';
 
