@@ -126,7 +126,7 @@ class _Login_pageState extends State<Login_page> {
                       textInputAction: TextInputAction.done,
                     ),
 
-                        FlatButton(
+                        TextButton(
                           onPressed: (){
                             // Navigator.of(context).pushNamed('/forgot');
                             Navigator.of(context).pushNamed('/reset');
@@ -152,7 +152,7 @@ class _Login_pageState extends State<Login_page> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text("Don't have an Accout?", style: TextStyle(color: Color(0xFF3B76F6),)),
-                        FlatButton(
+                        TextButton(
                           onPressed: (){
                             Navigator.of(context).pushNamed('/two');
                           },
@@ -176,9 +176,9 @@ class _Login_pageState extends State<Login_page> {
             .then((uid) =>
         {
           Fluttertoast.showToast(msg: "Login Successful"),
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false),
-        });
+          Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/home', (Route<dynamic> route) => false),
+                });
       }on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":

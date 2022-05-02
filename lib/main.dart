@@ -1,4 +1,3 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,20 +14,23 @@ import 'splash.dart';
 import 'dart:io' show Platform;
 
 Future<void> main() async {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.lightBlueAccent));
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.lightBlueAccent));
   WidgetsFlutterBinding.ensureInitialized();
-    if(Platform.isAndroid){
-      await Firebase.initializeApp();
-    } if(Platform.isWindows){
-      await Firebase.initializeApp(options: FirebaseOptions(
-          apiKey: "AIzaSyDcuQiQdSTRTmJbbJpCPD2V_WKUQ4ia-2g",
-          authDomain: "learn-gate-c8b01.firebaseapp.com",
-          projectId: "learn-gate-c8b01",
-          storageBucket: "learn-gate-c8b01.appspot.com",
-          messagingSenderId: "1088362444533",
-          appId: "1:1088362444533:web:2c18c3e6fdf5b63a1f37bc",
-          measurementId: "G-HVVVS9VBL5"));
-    }
+  if (Platform.isAndroid) {
+    await Firebase.initializeApp();
+  }
+  if (Platform.isWindows) {
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "AIzaSyDcuQiQdSTRTmJbbJpCPD2V_WKUQ4ia-2g",
+            authDomain: "learn-gate-c8b01.firebaseapp.com",
+            projectId: "learn-gate-c8b01",
+            storageBucket: "learn-gate-c8b01.appspot.com",
+            messagingSenderId: "1088362444533",
+            appId: "1:1088362444533:web:2c18c3e6fdf5b63a1f37bc",
+            measurementId: "G-HVVVS9VBL5"));
+  }
   final client = StreamChatClient("xe7pkesmb3ku");
   runApp(MyApp(
     client: client,
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   final StreamChatClient client;
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,10 +52,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       title: 'Chatter',
       builder: (context, child) {
-        return StreamChatCore(
-          client: client,
-          child: child!
-          );
+        return StreamChatCore(client: client, child: child!);
       },
       routes: {
         '/': (context) => Splash(),

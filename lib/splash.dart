@@ -7,16 +7,14 @@ void main() {
   runApp(Splash());
 }
 
-
-void setState(Null Function() param0) {
-}
+void setState(Null Function() param0) {}
 
 class Splash extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash>{
+class _SplashState extends State<Splash> {
   // var splash = 'assets/splash.gif';
 
   void initState() {
@@ -24,9 +22,10 @@ class _SplashState extends State<Splash>{
     _navigatetohome();
   }
 
-  _navigatetohome()async{
+  _navigatetohome() async {
     await Future.delayed(Duration(milliseconds: 2500), () {});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 
   build(context) {
@@ -40,13 +39,10 @@ class _SplashState extends State<Splash>{
               child: Center(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 child:
-                  // Container(height: 10),
-                  Lottie.asset('assets/splash.json',
-                    fit: BoxFit.fill, repeat: false),
-
-              )
-          )
-      ),
+                    // Container(height: 10),
+                    Lottie.asset('assets/splash.json',
+                        fit: BoxFit.fill, repeat: false),
+              ))),
       debugShowCheckedModeBanner: false,
     );
   }

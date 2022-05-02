@@ -1,7 +1,6 @@
 import 'package:win/models/models.dart';
 import 'package:win/theme.dart';
 import 'package:win/widgets/glowing_action_button.dart';
-import 'package:win/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,32 +26,32 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-
-
-  List<Widget> messages = [_MessageTile(
-            message: 'Hi, Lucy! How\'s your day going?',
-            messageDate: '12:01 PM',
-          ),
-          _MessageOwnTile(
-            message: 'You know how it goes...',
-            messageDate: '12:02 PM',
-          ),
-          _MessageTile(
-            message: 'Do you want Starbucks?',
-            messageDate: '12:02 PM',
-          ),
-          _MessageOwnTile(
-            message: 'Would be awesome!',
-            messageDate: '12:03 PM',
-          ),
-          _MessageTile(
-            message: 'Coming up!',
-            messageDate: '12:03 PM',
-          ),
-          _MessageOwnTile(
-            message: 'YAY!!!',
-            messageDate: '12:03 PM',
-          )];
+  List<Widget> messages = [
+    _MessageTile(
+      message: 'Hi, Lucy! How\'s your day going?',
+      messageDate: '12:01 PM',
+    ),
+    _MessageOwnTile(
+      message: 'You know how it goes...',
+      messageDate: '12:02 PM',
+    ),
+    _MessageTile(
+      message: 'Do you want Starbucks?',
+      messageDate: '12:02 PM',
+    ),
+    _MessageOwnTile(
+      message: 'Would be awesome!',
+      messageDate: '12:03 PM',
+    ),
+    _MessageTile(
+      message: 'Coming up!',
+      messageDate: '12:03 PM',
+    ),
+    _MessageOwnTile(
+      message: 'YAY!!!',
+      messageDate: '12:03 PM',
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -101,17 +100,20 @@ class _ChatScreenState extends State<ChatScreen> {
           Expanded(
             child: _DemoMessageList(messages: messages),
           ),
-          _ActionBar(sendMessage: (message) {
-            setState(() {
+          _ActionBar(
+            sendMessage: (message) {
+              setState(() {
+                var currentTime = DateTime.now();
 
-              var currentTime = DateTime.now();
+                var currentTimeString = currentTime.hour.toString() +
+                    ": " +
+                    currentTime.minute.toString();
 
-              var currentTimeString = currentTime.hour.toString() + ": " + currentTime.minute.toString();
-              
-
-              messages.add(_MessageOwnTile(message: message, messageDate: currentTimeString));
-            });
-          },),
+                messages.add(_MessageOwnTile(
+                    message: message, messageDate: currentTimeString));
+              });
+            },
+          ),
         ],
       ),
     );
@@ -119,8 +121,7 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class _DemoMessageList extends StatelessWidget {
-
-final List<Widget> messages;
+  final List<Widget> messages;
 
   const _DemoMessageList({Key? key, required this.messages}) : super(key: key);
 
@@ -312,7 +313,9 @@ class _AppBarTitle extends StatelessWidget {
               Text(
                 messageData.senderName,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 14, color: Theme.of(context).appBarTheme.titleTextStyle?.color),
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).appBarTheme.titleTextStyle?.color),
               ),
               const SizedBox(height: 2),
               const Text(
@@ -332,7 +335,6 @@ class _AppBarTitle extends StatelessWidget {
 }
 
 class _ActionBar extends StatelessWidget {
-
   final Function(String) sendMessage;
 
   _ActionBar({Key? key, required this.sendMessage}) : super(key: key);
@@ -362,7 +364,7 @@ class _ActionBar extends StatelessWidget {
               ),
             ),
           ),
-           Expanded(
+          Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: TextField(
@@ -395,33 +397,6 @@ class _ActionBar extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import 'package:flutter/material.dart';
 // import 'package:win/models/message_data.dart';
 // import 'package:win/models/models.dart';
@@ -431,7 +406,6 @@ class _ActionBar extends StatelessWidget {
 //   static Route route(MessageData data) => MaterialPageRoute(
 //     builder: (context) => ChatScreen(messageData: data)
 //     );
-
 
 //   const ChatScreen({ Key? key, required this.messageData }) : super(key: key);
 
@@ -444,14 +418,11 @@ class _ActionBar extends StatelessWidget {
 //   }
 // }
 
-
-
 // class IconBorder extends StatelessWidget {
 //   const IconBorder({ Key? key, required this.icon, required this.onTap }) : super(key: key);
 
 //   final IconData icon;
 //   final VoidCallback onTap;
-
 
 //   @override
 //   Widget build(BuildContext context) {

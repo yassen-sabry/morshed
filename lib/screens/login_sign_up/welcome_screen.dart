@@ -13,19 +13,6 @@ class WelcomeScreen extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,12 +25,19 @@ class Body extends StatelessWidget {
           children: <Widget>[
             const Text(
               "WELCOME TO MORSHED",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
             const SizedBox(height: 32),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 72, vertical: 70),
-              child: Image.asset("assets/images/Morsheds.png", fit: BoxFit.fill,scale: 7,),
+              child: Image.asset(
+                "assets/images/Morsheds.png",
+                fit: BoxFit.fill,
+                scale: 7,
+              ),
             ),
             const SizedBox(height: 32),
             // SvgPicture.asset(
@@ -53,57 +47,49 @@ class Body extends StatelessWidget {
             const SizedBox(height: 16),
             RoundedButton(
               text: "LOGIN",
-              press3: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) {return LoginScreen(); }));
-              }, press: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) {return Login_page(); })); },
+              press3: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return LoginScreen();
+                }));
+              },
+              press: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Login_page();
+                }));
+              },
             ),
             RoundedButton(
-              text: "SIGN UP",
-              color: Color(0xFFF1E6FF),
-              textColor: Colors.black,
-              press3: () {
-                Navigator.of(
-                  context).push(
-                  MaterialPageRoute(
+                text: "SIGN UP",
+                color: Color(0xFFF1E6FF),
+                textColor: Colors.black,
+                press3: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const TwoButtons();
+                      },
+                    ),
+                  );
+                },
+                press: () {
+                  Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) {
                       return const TwoButtons();
                     },
-                  ),
-                );
-              }, press: () { Navigator.of(
-                  context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const TwoButtons(); },)
-            );
-              })],
+                  ));
+                })
+          ],
         ),
       ),
     );
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Background extends StatelessWidget {
   final Widget child;
+
   const Background({
     required this.child,
   });
