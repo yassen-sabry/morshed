@@ -124,6 +124,9 @@ class _Login_pageState extends State<Login_page> {
                         passwordController.text = value!;
                       },
                       textInputAction: TextInputAction.done,
+                      onFieldSubmitted: (_formKey) {
+                        signIn(emailController.text, passwordController.text);
+                      },
                     ),
 
                         TextButton(

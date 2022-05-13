@@ -82,6 +82,26 @@ class _HomePageState extends State<HomePage> {
                   height: 40,
                 ),
                 //     buildAbout(instructors),
+                IntrinsicHeight(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        buildDivider(),
+                        buildDivider(),
+                        Text('Email: ', style: Theme.of(context).textTheme.headline6?.copyWith(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,)),
+                        SelectableText("${_Instructors[index].email}", style: Theme.of(context).textTheme.headline6?.copyWith(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          ),
+                            ),
+                        buildDivider(),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             )
           ],
@@ -141,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       "Name: ${_Instructors[index].name}",
                       style: Theme.of(context).textTheme.headline6?.copyWith(
-                            fontSize: 17,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
@@ -252,7 +272,7 @@ final List<Instructors> _Instructors = <Instructors>[
     email: faker.internet.email(),
   ),
   Instructors(
-    name: "Mohammad Darwish",
+    name: "Mohammad Abdol",
     description: "Hello Iam Mohammad Darwish",
     imageUrl: Helpers.randomPictureUrl(),
     field: "Accountatnt",
