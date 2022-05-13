@@ -3,9 +3,11 @@ import 'package:win/theme.dart';
 import 'package:win/widgets/glowing_action_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/avatar.dart';
 import '../widgets/icon_buttons.dart';
+import 'package:intl/intl.dart';
+
+import 'call_screen.dart';
 
 class ChatScreen extends StatefulWidget {
   static Route route(MessageData data) => MaterialPageRoute(
@@ -89,7 +91,12 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Center(
               child: IconBorder(
                 icon: CupertinoIcons.phone_solid,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return Call();
+                  }));
+                },
               ),
             ),
           ),
@@ -103,14 +110,11 @@ class _ChatScreenState extends State<ChatScreen> {
           _ActionBar(
             sendMessage: (message) {
               setState(() {
-                var currentTime = DateTime.now();
-
-                var currentTimeString = currentTime.hour.toString() +
-                    ": " +
-                    currentTime.minute.toString();
+                DateTime now = DateTime.now();
+                String formattedDate = DateFormat('kk:mm a').format(now);
 
                 messages.add(_MessageOwnTile(
-                    message: message, messageDate: currentTimeString));
+                    message: message, messageDate: formattedDate));
               });
             },
           ),
