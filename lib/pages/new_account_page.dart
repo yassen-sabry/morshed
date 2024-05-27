@@ -212,7 +212,7 @@ class _Create_account_pageState extends State<Create_account_page> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text("Already have an Accout?", style: TextStyle(color: Color(0xFF3B76F6),)),
-                    FlatButton(
+                    TextButton(
                       onPressed: (){
                         Navigator.of(context).pushNamed('/login');
                       },

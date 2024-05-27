@@ -8,6 +8,7 @@ import 'package:win/widgets/avatar.dart';
 import 'package:win/helpers.dart';
 import '../theme.dart';
 import 'package:anim_search_bar/anim_search_bar.dart';
+import 'package:win/pages/profile_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -73,9 +74,15 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child: Avatar.small(
-              url: Helpers.randomPictureUrl(),
-            ),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return Profile();
+                }));
+              },
+              icon: Avatar.small(
+                  url: Helpers.randomPictureUrl()),)
+
           )
         ],
       ),

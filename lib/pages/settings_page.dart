@@ -4,6 +4,7 @@ import 'package:unicons/unicons.dart';
 import 'package:win/screens/login_sign_up/welcome_screen.dart';
 import 'package:win/theme.dart';
 
+
 class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,11 @@ class SettingsPage extends StatelessWidget {
   }
 }
 
+
+
 class BodySettings extends StatefulWidget {
+
+
   const BodySettings({Key? key}) : super(key: key);
 
   @override
